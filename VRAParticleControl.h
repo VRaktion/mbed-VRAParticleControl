@@ -45,7 +45,7 @@ private:
     DigitalOut *vEnable;
     bool particleSensRunning{false};
 
-    static constexpr int sps30StartupTime{100};
+    static constexpr int sps30StartupTime{200};
     static constexpr int minRunTime{3000};
     static constexpr int defaultInterval{10000};
     static constexpr int minInterval{5000};

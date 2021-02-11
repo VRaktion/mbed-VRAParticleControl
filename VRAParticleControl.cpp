@@ -67,7 +67,7 @@ void VRAParticleControl::onStateOn(){
 }
 
 void VRAParticleControl::startParticleMeas(){
-    *this->vEnable = 1;
+    *(this->vEnable) = 1;
     this->eq->call_in(this->sps30StartupTime, callback(this, &VRAParticleControl::initParticleSens));
     this->eq->call_in(this->sps30StartupTime + this->minRunTime, callback(this, &VRAParticleControl::getParticleMeas));
 }
@@ -80,7 +80,7 @@ void VRAParticleControl::getParticleMeas(){
     this->particleSens->PollSPS30();
     this->particleSens->StopMeasurement();
     this->particleSens->SoftReset();
-    this->vEnable = 0;
+    *(this->vEnable) = 0;
     float mass[4]{
         this->particleSens->mass_1p0_f,
         this->particleSens->mass_2p5_f,
