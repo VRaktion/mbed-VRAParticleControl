@@ -12,10 +12,11 @@
 class VRAParticleControl : public BLEService
 {
 public:
-    enum class Characteristics: uint16_t
+    enum class Characteristics : uint16_t
     {
         ParticleMass = 0xFF00,
-        ParticleConc = 0xFF01
+        ParticleConc = 0xFF01,
+        ParticleClean = 0xFF02
     };
 
     VRAParticleControl(UUID *p_uuid, EventQueue *p_eq, StateChain *p_stateChain, I2C *p_i2c, PinName vEnable = NC);
@@ -35,6 +36,10 @@ private:
     void startParticleMeas();
     void getParticleMeas();
 
+    void cleanWriteCb();
+    void cleanSensor();
+    void stopClean();
+
     EventQueue *eq;
     // VRASettings *settings;
     // VRAStorage *storage;
@@ -50,6 +55,10 @@ private:
     static constexpr int defaultInterval{10000};
     static constexpr int minInterval{5000};
     static constexpr int maxInterval{600000};
+
+    BLECharacteristic *cleanCharacteristic;
+
+    volatile bool blocked{false};
 };
 
 #endif //VRA_PARTICLE_CONTROL_H
