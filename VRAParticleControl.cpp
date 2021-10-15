@@ -129,7 +129,7 @@ void VRAParticleControl::getParticleMeas()
            (int)mass[2], (int)mass[3]);
     this->setGatt(
         (uint16_t)VRAParticleControl::Characteristics::ParticleMass,
-        mass, 4);
+        mass, 4);//TEST
 
     printf("particle conc pm 0.5: %d pm1: %d pm2.5: %d pm4:%d pm10:%d\r\n",
            (int)conc[0], (int)conc[1],
@@ -138,7 +138,7 @@ void VRAParticleControl::getParticleMeas()
 
     this->setGatt(
         (uint16_t)VRAParticleControl::Characteristics::ParticleConc,
-        conc, 5);
+        conc, 5);//TEST
 }
 
 void VRAParticleControl::cleanWriteCb()

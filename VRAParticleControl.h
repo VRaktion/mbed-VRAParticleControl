@@ -51,10 +51,10 @@ private:
     bool particleSensRunning{false};
 
     static constexpr int sps30StartupTime{200};
-    static constexpr int minRunTime{3000};
-    static constexpr int defaultInterval{10000};
-    static constexpr int minInterval{5000};
-    static constexpr int maxInterval{600000};
+    static constexpr int minRunTime{30000};
+    static constexpr int defaultInterval{600000};
+    static constexpr int minInterval{35000};
+    static constexpr int maxInterval{6000000};
 
     BLECharacteristic *cleanCharacteristic;
 
